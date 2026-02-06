@@ -1,37 +1,41 @@
-function clicarBotao(seletor) {
-    const btn = document.querySelector(seletor);
-    if (btn) btn.click();
-}
-
-// Exemplo: se vício >= 50%, vai para hospital e desintoxica
-function tratarVicio() {
-    const vicioBar = document.querySelector(".barra-vicio"); // ajuste seletor
-    if (vicioBar && parseInt(vicioBar.textContent) >= 50) {
-        // navega até hospital e clica em desintoxicar
-        clicarBotao("#hospital");
-        clicarBotao("#desintoxicar");
-        clicarBotao("#comprar-creditos");
-        // volta para roubar
-        clicarBotao("#roubar");
+function clicarBotaoPorTexto(texto) {
+  const botoes = document.querySelectorAll("button");
+  for (let btn of botoes) {
+    if (btn.innerText.includes(texto)) {
+      btn.click();
+      break;
     }
+  }
 }
 
-// Exemplo: automação de roubo solo
+// Automação de vício
+function tratarVicio() {
+  const vicioBar = document.querySelector(".addiction-bar"); // ajuste seletor real
+  if (vicioBar && parseInt(vicioBar.textContent) >= 50) {
+    document.querySelector("#menu-hub")?.click();       // Serviços da Cidade
+    clicarBotaoPorTexto("Hospital");
+    clicarBotaoPorTexto("Desintoxicar");
+    clicarBotaoPorTexto("COMPRE POR 5 CRÉDITOS");
+    document.querySelector("#menu-robbery")?.click();   // volta para roubos
+  }
+}
+
+// Roubo solo
 function rouboSolo() {
-    clicarBotao("#reabastecer-stamina");
-    clicarBotao("#roubar");
+  clicarBotaoPorTexto("Reabastecer Stamina");
+  clicarBotaoPorTexto("ROUBAR!");
 }
 
-// Exemplo: automação de roubo em gangue
+// Roubo em gangue
 function rouboGangue() {
-    clicarBotao("#reabastecer-stamina");
-    clicarBotao("#aceitar");
-    clicarBotao("#efetuar-crime");
+  clicarBotaoPorTexto("Reabastecer Stamina");
+  clicarBotaoPorTexto("Aceitar");
+  clicarBotaoPorTexto("Efetuar o crime!");
 }
 
-// Rodar em loop
+// Loop automático
 setInterval(() => {
-    tratarVicio();
-    rouboSolo();
-    rouboGangue();
-}, 5000); // a cada 5 segundos
+  tratarVicio();
+  rouboSolo();
+  rouboGangue();
+}, 5000);
