@@ -13,6 +13,5 @@ class GameVisualization {
     }
 }
 
-// Example usage:
 const gameViz = new GameVisualization();
-// gameViz.updateStatus('Game Started!');
+gameViz.render(); // ou qualquer método que faça sentido
