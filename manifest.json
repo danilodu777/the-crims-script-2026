@@ -2,40 +2,11 @@
   "manifest_version": 3,
   "name": "The Crims Script",
   "version": "1.0",
-  "description": "Extensão de navegador visual com automação para The Crims 2026.",
-  "permissions": [
-    "storage",
-    "activeTab"
-  ],
-  "host_permissions": [
-    "https://www.thecrims.com/*"
-  ],
-  "background": {
-    "service_worker": "background.js"
-  },
-  "action": {
-    "default_popup": "popup.html",
-    "default_icon": {
-      "16": "icon.png",
-      "48": "icon1.png",
-      "128": "icon.png"
-    }
-  },
-  "icons": {
-    "16": "icon.png",
-    "48": "icon1.png",
-    "128": "icon.png"
-  },
+  "permissions": ["scripting", "activeTab"],
   "content_scripts": [
     {
       "matches": ["https://www.thecrims.com/*"],
       "js": ["content.js"]
-    }
-  ],
-  "web_accessible_resources": [
-    {
-      "resources": ["automation.js", "visualization.js"],
-      "matches": ["https://www.thecrims.com/*"]
     }
   ]
 }
