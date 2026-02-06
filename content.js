@@ -22,13 +22,13 @@ function tratarVicio() {
 
 // Roubo solo
 function rouboSolo() {
-  clicarBotaoPorTexto("Reabastecer Stamina");
+  clicarBotaoPorTexto("Reabastecer Estamina");
   clicarBotaoPorTexto("ROUBAR!");
 }
 
 // Roubo em gangue
 function rouboGangue() {
-  clicarBotaoPorTexto("Reabastecer Stamina");
+  clicarBotaoPorTexto("Reabastecer Estamina");
   clicarBotaoPorTexto("Aceitar");
   clicarBotaoPorTexto("Efetuar o crime!");
 }
