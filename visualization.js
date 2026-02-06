@@ -14,4 +14,4 @@ class GameVisualization {
 }
 
 const gameViz = new GameVisualization();
-gameViz.render(); // ou qualquer método que faça sentido
+gameViz.updateStatus("Iniciando jogo...");
