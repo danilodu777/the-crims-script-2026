@@ -18,30 +18,41 @@ function iniciarAutomacao() {
   automacaoAtiva = true;
   console.log('Automação ativada!');
 
-  intervaloAutomacao = setInterval(() => {
-    try {
-      const botaoRoubo = document.querySelector('.botao-roubo');
-      if (botaoRoubo) {
-        botaoRoubo.click();
-        console.log('Roubo automático realizado!');
-      }
+  chrome.storage.local.get('settings', (data) => {
+    const { roubo, treino, hospital, intervalo } = data.settings || {};
+    const tempo = (intervalo || 5) * 1000;
 
-      const linkHospital = document.querySelector('a[href="/hospital"]');
-      if (linkHospital) {
-        linkHospital.click();
-        console.log('Navegando automaticamente para o hospital...');
-      }
+    intervaloAutomacao = setInterval(() => {
+      try {
+        if (roubo) {
+          const botaoRoubo = document.querySelector('.botao-roubo');
+          if (botaoRoubo) {
+            botaoRoubo.click();
+            console.log('Roubo automático realizado!');
+          }
+        }
 
-      const botaoTreino = document.querySelector('.botao-treino');
-      if (botaoTreino) {
-        botaoTreino.click();
-        console.log('Treino automático iniciado!');
-      }
+        if (treino) {
+          const botaoTreino = document.querySelector('.botao-treino');
+          if (botaoTreino) {
+            botaoTreino.click();
+            console.log('Treino automático iniciado!');
+          }
+        }
 
-    } catch (err) {
-      console.error('Erro na automação:', err);
-    }
-  }, 5000);
+        if (hospital) {
+          const linkHospital = document.querySelector('a[href="/hospital"]');
+          if (linkHospital) {
+            linkHospital.click();
+            console.log('Navegando automaticamente para o hospital...');
+          }
+        }
+
+      } catch (err) {
+        console.error('Erro na automação:', err);
+      }
+    }, tempo);
+  });
 }
 
 function pararAutomacao() {
