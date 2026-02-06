@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "The Crims Script",
+  "name": "The Crims Script 2026",
   "version": "1.0",
   "permissions": ["scripting", "activeTab"],
   "content_scripts": [
@@ -8,5 +8,8 @@
       "matches": ["https://www.thecrims.com/*"],
       "js": ["content.js"]
     }
-  ]
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  }
 }
