@@ -8,34 +8,23 @@ function clicarBotaoPorTexto(texto) {
   }
 }
 
-// Automação de vício
-function tratarVicio() {
-  const vicioBar = document.querySelector(".addiction-bar"); // ajuste seletor real
-  if (vicioBar && parseInt(vicioBar.textContent) >= 50) {
-    document.querySelector("#menu-hub")?.click();       // Serviços da Cidade
-    clicarBotaoPorTexto("Hospital");
-    clicarBotaoPorTexto("Desintoxicar");
-    clicarBotaoPorTexto("COMPRE POR 5 CRÉDITOS");
-    document.querySelector("#menu-robbery")?.click();   // volta para roubos
-  }
+// Observa mudanças na barra de stamina
+function observarStamina() {
+  const staminaBar = document.querySelector(".stamina-bar"); // ajuste seletor real
+  if (!staminaBar) return;
+
+  const observer = new MutationObserver(() => {
+    const valor = parseInt(staminaBar.textContent);
+
+    if (valor >= 50) {
+      clicarBotaoPorTexto("ROUBAR!");
+    } else if (valor <= 0) {
+      clicarBotaoPorTexto("Reabastecer Estamina");
+    }
+  });
+
+  observer.observe(staminaBar, { childList: true, subtree: true, characterData: true });
 }
 
-// Roubo solo
-function rouboSolo() {
-  clicarBotaoPorTexto("Reabastecer Estamina");
-  clicarBotaoPorTexto("ROUBAR!");
-}
-
-// Roubo em gangue
-function rouboGangue() {
-  clicarBotaoPorTexto("Reabastecer Estamina");
-  clicarBotaoPorTexto("Aceitar");
-  clicarBotaoPorTexto("Efetuar o crime!");
-}
-
-// Loop automático
-setInterval(() => {
-  tratarVicio();
-  rouboSolo();
-  rouboGangue();
-}, 5000);
+// Inicializa observação
+observarStamina();
