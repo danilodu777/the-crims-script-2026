@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "The Crims Script",
   "version": "1.0",
-  "description": "Uma extensão para auxiliar no jogo The Crims.",
+  "description": "Extensão de navegador visual com automação para The Crims 2026.",
   "permissions": [
     "storage",
     "activeTab"
@@ -30,6 +30,12 @@
     {
       "matches": ["https://www.thecrims.com/*"],
       "js": ["content.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["automation.js", "visualization.js"],
+      "matches": ["https://www.thecrims.com/*"]
     }
   ]
 }
