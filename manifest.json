@@ -1,1 +1,35 @@
-{\n "manifest_version": 3,\n "name": "The Crims Script",\n "version": "1.0",\n  "description": "A Chrome extension for The Crims game.",\n"permissions":[\n   "storage",\n    "activeTab"\n  ],\n  "background": {\n    "service_worker": "background.js"\n  },\n  "action": {\n    "default_popup": "popup.html",\n    "default_icon": "icon.png"\n  },\n  "icons": {\n    "48": "icon.png"\n  }\n}
+{
+  "manifest_version": 3,
+  "name": "The Crims Script",
+  "version": "1.0",
+  "description": "Uma extensão para auxiliar no jogo The Crims.",
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://www.thecrims.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
+    }
+  },
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.thecrims.com/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
