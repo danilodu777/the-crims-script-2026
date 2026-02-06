@@ -1,6 +1,6 @@
 function clicarBotaoPorTexto(texto) {
   const botoes = document.querySelectorAll("button");
-  for (let btn of botoes) {
+  for (const btn of botoes) {
     if (btn.innerText.includes(texto)) {
       btn.click();
       break;
