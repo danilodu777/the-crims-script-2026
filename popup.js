@@ -16,7 +16,6 @@ function openPopup() {
     const closeButton = document.createElement('button');
     closeButton.innerText = 'Close';
     closeButton.onclick = function() {
-        document.body.removeChild(popup);
     };
 
     popup.appendChild(closeButton);
