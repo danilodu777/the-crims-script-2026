@@ -5,7 +5,7 @@
   "permissions": ["scripting", "activeTab"],
   "content_scripts": [
     {
-      "matches": ["https://www.thecrims.com/*"],
+      "matches": ["https://beta.thecrims.com/*"],
       "js": ["content.js"]
     }
   ],
