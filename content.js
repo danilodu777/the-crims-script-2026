@@ -1,19 +1,37 @@
-// Exemplo: mudar o fundo da página
-document.body.style.backgroundColor = "black";
+function clicarBotao(seletor) {
+    const btn = document.querySelector(seletor);
+    if (btn) btn.click();
+}
 
-// Usando sua classe GameVisualization
-class GameVisualization {
-    constructor() {
-        this.status = '';
-    }
-    updateStatus(newStatus) {
-        this.status = newStatus;
-        this.display();
-    }
-    display() {
-        console.log(`Current Game Status: ${this.status}`);
+// Exemplo: se vício >= 50%, vai para hospital e desintoxica
+function tratarVicio() {
+    const vicioBar = document.querySelector(".barra-vicio"); // ajuste seletor
+    if (vicioBar && parseInt(vicioBar.textContent) >= 50) {
+        // navega até hospital e clica em desintoxicar
+        clicarBotao("#hospital");
+        clicarBotao("#desintoxicar");
+        clicarBotao("#comprar-creditos");
+        // volta para roubar
+        clicarBotao("#roubar");
     }
 }
 
-const gameViz = new GameVisualization();
-gameViz.updateStatus("Extensão ativa dentro do site!");
+// Exemplo: automação de roubo solo
+function rouboSolo() {
+    clicarBotao("#reabastecer-stamina");
+    clicarBotao("#roubar");
+}
+
+// Exemplo: automação de roubo em gangue
+function rouboGangue() {
+    clicarBotao("#reabastecer-stamina");
+    clicarBotao("#aceitar");
+    clicarBotao("#efetuar-crime");
+}
+
+// Rodar em loop
+setInterval(() => {
+    tratarVicio();
+    rouboSolo();
+    rouboGangue();
+}, 5000); // a cada 5 segundos
