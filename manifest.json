@@ -1,15 +1,14 @@
 {
   "manifest_version": 3,
-  "name": "The Crims Script 2026",
-  "version": "1.0",
-  "permissions": ["scripting", "activeTab"],
-  "content_scripts": [
-    {
-      "matches": ["https://beta.thecrims.com/*"],
-      "js": ["content.js"]
-    }
-  ],
+  "name": "DUARTT — Vida Pique Vida Bandida Lifestyle | AutoBot",
+  "version": "1.0.0",
+  "description": "Extensão web baseada em React/Vite/Tailwind.",
   "action": {
-    "default_popup": "popup.html"
-  }
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  },
+  "icons": {
+    "48": "icon.png"
+  },
+  "permissions": ["storage"]
 }
