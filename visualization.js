@@ -12,3 +12,5 @@ class GameVisualization {
         console.log(`Current Game Status: ${this.status}`);
     }
 }
+
+export default GameVisualization;
