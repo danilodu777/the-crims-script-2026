@@ -1,14 +1,1 @@
-{
-  "manifest_version": 3,
-  "name": "DUARTT — Vida Pique Vida Bandida Lifestyle | AutoBot",
-  "version": "1.0.0",
-  "description": "Extensão web baseada em React/Vite/Tailwind.",
-  "action": {
-    "default_popup": "popup.html",
-    "default_icon": "icon.png"
-  },
-  "icons": {
-    "48": "icon.png"
-  },
-  "permissions": ["storage"]
-}
+{\n  "manifest_version": 3,\n  "name": "DUARTT — Vida Pique Vida Bandida Lifestyle | AutoBot",\n  "version": "1.0.0",\n  "description": "Extensão web baseada em React/Vite/Tailwind.",\n  "action": {\n    "default_popup": "popup.html",\n    "default_icon": "icon.png"\n  },\n  "icons": {\n    "48": "icon.png"\n  },\n  "permissions": [\n    "storage"\n  ]\n}
