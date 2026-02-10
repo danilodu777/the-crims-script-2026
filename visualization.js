@@ -12,7 +12,3 @@ class GameVisualization {
         console.log(`Current Game Status: ${this.status}`);
     }
 }
-
-// Example usage:
-const gameViz = new GameVisualization();
-// gameViz.updateStatus('Game Started!');
